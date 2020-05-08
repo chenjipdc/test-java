@@ -144,6 +144,5 @@ fabric.properties
 .idea/misc.xml
 .idea/modules.xml
 .idea/smartfox_info.xml
-pom.xml
 target/
 test-java.iml
