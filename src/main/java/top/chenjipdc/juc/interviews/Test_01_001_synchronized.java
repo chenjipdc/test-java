@@ -8,7 +8,7 @@ import java.io.IOException;
  *
  * 要求间隔输出：A1B2C3D4E5F6G7
  */
-public class Test001_synchronized {
+public class Test_01_001_synchronized {
 
     private final String str1 = "ABCDEFG";
     private final String str2 = "1234567";
@@ -20,7 +20,7 @@ public class Test001_synchronized {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        Test001_synchronized t = new Test001_synchronized();
+        Test_01_001_synchronized t = new Test_01_001_synchronized();
 
 
         t.t1 = new Thread(t::print2);

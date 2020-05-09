@@ -21,5 +21,8 @@ public class Test {
                 .keySet()) {
             System.out.println(o + " \t\t=> " + System.getProperty((String) o));
         }
+
+
+        System.out.println(1024 * 1024);
     }
 }

@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * 要求间隔输出：A1B2C3D4E5F6G7
  */
-public class Test003_ReentrantLock {
+public class Test_01_003_ReentrantLock {
 
     private final String str1 = "ABCDEFG";
     private final String str2 = "1234567";
@@ -22,7 +22,7 @@ public class Test003_ReentrantLock {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Test003_ReentrantLock t = new Test003_ReentrantLock();
+        Test_01_003_ReentrantLock t = new Test_01_003_ReentrantLock();
 
 
         t.t1 = new Thread(t::print1);

@@ -1,7 +1,6 @@
 package top.chenjipdc.juc.interviews;
 
-import java.util.concurrent.LinkedTransferQueue;
-import java.util.concurrent.TransferQueue;
+import java.util.concurrent.Exchanger;
 
 /**
  * @author chenjipdc@gmail.com
@@ -9,20 +8,20 @@ import java.util.concurrent.TransferQueue;
  *
  * 要求间隔输出：A1B2C3D4E5F6G7
  */
-public class Test005_TransferQueue {
+public class Test_01_004_Exchanger_Not_Work {
 
     private final String str1 = "ABCDEFG";
     private final String str2 = "1234567";
 
 
-    private TransferQueue<Character> queue = new LinkedTransferQueue<>();
+    private Exchanger<Character> exchanger = new Exchanger<>();
 
     private Thread t1;
     private Thread t2;
 
     public static void main(String[] args) throws InterruptedException {
 
-        Test005_TransferQueue t = new Test005_TransferQueue();
+        Test_01_004_Exchanger_Not_Work t = new Test_01_004_Exchanger_Not_Work();
 
 
         t.t1 = new Thread(t::print1);
@@ -39,8 +38,9 @@ public class Test005_TransferQueue {
     private void print1(){
         for (int i = 0; i < str1.length(); i++) {
             try {
-                queue.transfer(str1.charAt(i));
-                System.out.print(queue.take());
+                char c = str1.charAt(i);
+                c = exchanger.exchange(c);
+                System.out.print(c);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -50,8 +50,9 @@ public class Test005_TransferQueue {
     private void print2(){
         for (int i = 0; i < str2.length(); i++) {
             try {
-                System.out.print(queue.take());
-                queue.transfer(str2.charAt(i));
+                char c = str2.charAt(i);
+                c = exchanger.exchange(c);
+                System.out.print(c);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

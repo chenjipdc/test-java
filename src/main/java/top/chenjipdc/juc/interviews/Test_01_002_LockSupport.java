@@ -8,7 +8,7 @@ import java.util.concurrent.locks.LockSupport;
  *
  * 要求间隔输出：A1B2C3D4E5F6G7
  */
-public class Test002_LockSupport {
+public class Test_01_002_LockSupport {
 
     private final String str1 = "ABCDEFG";
     private final String str2 = "1234567";
@@ -18,7 +18,7 @@ public class Test002_LockSupport {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Test002_LockSupport t = new Test002_LockSupport();
+        Test_01_002_LockSupport t = new Test_01_002_LockSupport();
 
 
         t.t1 = new Thread(t::print1);
