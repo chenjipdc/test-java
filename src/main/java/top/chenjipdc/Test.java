@@ -24,5 +24,7 @@ public class Test {
 
 
         System.out.println(1024 * 1024);
+
+        System.out.println(10_10);
     }
 }
